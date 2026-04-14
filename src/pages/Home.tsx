@@ -135,8 +135,6 @@ export default function Home() {
           <button type="submit" className="bg-primary text-on-primary px-8 py-4 rounded-xl font-label text-sm font-bold uppercase tracking-widest hover:opacity-90">Join</button>
         </form>
       </section>
-    </div>
-
       </div>
       
       <div className="max-w-7xl mx-auto px-12">
@@ -278,8 +276,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </div>
-
       </div>
 
       <div className="max-w-7xl mx-auto px-12">
@@ -455,9 +451,6 @@ export default function Home() {
           </div>
         </aside>
       </div>
-    </div>
-
       </div>
-    </div>
   );
 }
