@@ -1,97 +1,137 @@
-import { ArrowRight, Terminal } from 'lucide-react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
-    <div className="page-enter-active" style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
-      
-      {/* Hero Section */}
-      <section style={{ 
-        padding: '60px 0', 
-        display: 'flex', 
-        flexDirection: 'column', 
-        alignItems: 'center',
-        textAlign: 'center'
-      }}>
-        <div style={{
-          display: 'inline-flex',
-          alignItems: 'center',
-          gap: '8px',
-          padding: '8px 16px',
-          backgroundColor: 'rgba(88, 166, 255, 0.1)',
-          border: '1px solid var(--primary)',
-          borderRadius: '20px',
-          color: 'var(--primary)',
-          marginBottom: '24px',
-          fontSize: '0.9rem',
-          fontWeight: 500
-        }}>
-          <Terminal size={16} /> Hello, World!
+    <div className="pt-32 pb-32 max-w-7xl mx-auto px-12">
+      {/* Featured Article: Asymmetric Layout */}
+      <section className="grid grid-cols-12 gap-12 items-end mb-32">
+        <div className="col-span-12 lg:col-span-7 relative">
+          <div className="aspect-[4/5] overflow-hidden rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-500">
+            <img className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" data-alt="clean high-angle shot of a silver laptop on a minimalist white desk with architectural blueprints and a glass of water" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA98qeMSnjBGC5H2_1lQGq2XEQ6WWrDxOz37pZHMlr6U_Zf3OEdhQhIQuiKn9aJ8AACC16uUwbsd1UhczRYcCLT2tnZxcyJGZEN2CVHP0rpERpop3N_FkaaTP0N0_e0jgLWsyHSMPZkpv87ybVJiDHs0nCyCyxsRJoacnAagmt879ic1Y4vaSgezrceUxV_hesSvBtZ4FpKGizGp70gxcrVXqDSjsJfJj6A3_YtSPUO8D4mXDqDYNBCkrTSoEjIvORbomGaNslLfiw"/>
+          </div>
+          {/* Float Label */}
+          <div className="absolute top-8 left-8 bg-surface-container-lowest/90 backdrop-blur-md px-4 py-2 rounded-full border border-outline-variant/15">
+            <span className="font-label text-[10px] font-bold tracking-[0.1em] text-primary uppercase">Featured Engineering</span>
+          </div>
         </div>
-        <h1 style={{ 
-          fontSize: '2.8rem', 
-          margin: '0 0 20px 0',
-          background: 'linear-gradient(to right, var(--text-color), var(--primary))',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          lineHeight: '1.2'
-        }}>
-          미래를 코딩하는 최승재,<br />환영합니다.
-        </h1>
-        <p style={{ 
-          color: 'var(--text-muted)', 
-          fontSize: '1.1rem', 
-          maxWidth: '600px', 
-          margin: '0 auto 30px auto'
-        }}>
-          <b>공학3계열 컴퓨터소프트웨어 전공.</b><br/>배운 것을 꼼꼼히 기록하고, 멋진 개발자로 성장하는 과정을 공유합니다.
-        </p>
-        <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
-          <Link to="/about" className="btn-primary">
-            내 소개 보기 <ArrowRight size={18} />
-          </Link>
-          <Link to="/posts" className="btn-primary" style={{
-            backgroundColor: 'transparent',
-            borderColor: 'var(--border-color)',
-            color: 'var(--text-color)'
-          }}>
-            최근 게시물 살펴보기
-          </Link>
+        <div className="col-span-12 lg:col-span-5 pb-12">
+          <div className="mb-4">
+            <span className="font-label text-[12px] font-medium tracking-[0.05em] text-on-surface-variant uppercase">Volume 04 — Oct 2024</span>
+          </div>
+          <h1 className="text-[3.5rem] font-bold leading-[1.1] tracking-tight mb-8 text-on-surface">
+            The Architecture of Decoupled Systems.
+          </h1>
+          <p className="text-lg text-on-surface-variant leading-relaxed mb-10 max-w-md">
+            Exploring the structural integrity of micro-frontends and how intentional friction leads to more resilient digital infrastructure.
+          </p>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-[1px] bg-primary"></div>
+            <Link to="/posts" className="font-label text-sm font-bold tracking-wider text-primary group flex items-center gap-2">
+              READ ARTICLE
+              <span className="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* Featured Posts Preview */}
-      <section>
-        <h2 style={{ fontSize: '1.5rem', marginBottom: '24px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span style={{ color: 'var(--primary)' }}>#</span> 최근 관심사
-        </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
-          
-          <div className="glass-card">
-            <div style={{ color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 600, marginBottom: '8px' }}>C / C++</div>
-            <h3 style={{ marginBottom: '12px' }}>프로그래밍 기초 다지기</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '16px' }}>
-              학교 수업에서 다루는 C언어 기초 문법과 메모리 구조, 그리고 C++ 객체지향에 대한 스터디 기록입니다.
-            </p>
-            <Link to="/posts" style={{ color: 'var(--primary)', fontWeight: 500, fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-              Read more <ArrowRight size={14} />
-            </Link>
-          </div>
+      {/* Tonal Shift Spacer */}
+      <div className="w-full h-[1px] bg-outline-variant/15 mb-32"></div>
 
-          <div className="glass-card">
-            <div style={{ color: 'var(--primary)', fontSize: '0.85rem', fontWeight: 600, marginBottom: '8px' }}>Web Frontend</div>
-            <h3 style={{ marginBottom: '12px' }}>나만의 블로그 구축기</h3>
-            <p style={{ color: 'var(--text-muted)', fontSize: '0.95rem', marginBottom: '16px' }}>
-              React와 TypeScript, Vite를 활용하여 현재 이 블로그를 개발하게 된 과정과 사이버 펑크 블루 테마 적용 소감.
-            </p>
-            <Link to="/posts" style={{ color: 'var(--primary)', fontWeight: 500, fontSize: '0.9rem', display: 'inline-flex', alignItems: 'center', gap: '4px' }}>
-              Read more <ArrowRight size={14} />
-            </Link>
+      {/* Masonry-style Grid Section */}
+      <section className="mb-32">
+        <div className="flex justify-between items-end mb-16">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight mb-2">Technical Deep-Dives</h2>
+            <p className="text-on-surface-variant font-label text-xs uppercase tracking-[0.1em]">Selected writings on infrastructure & design</p>
           </div>
+          <div className="flex gap-4">
+            <span className="p-2 rounded-full border border-outline-variant/30 hover:bg-surface-container transition-colors cursor-pointer material-symbols-outlined">grid_view</span>
+            <span className="p-2 rounded-full border border-outline-variant/30 hover:bg-surface-container transition-colors cursor-pointer material-symbols-outlined">reorder</span>
+          </div>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          {/* Card 1 */}
+          <article className="group cursor-pointer">
+            <div className="aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container-low transition-all duration-300 group-hover:-translate-y-2">
+              <img className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="abstract satellite view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDykxk7RCn7X9M5U_JQoIIRixgHCdYIB3yyrU0Htp8WgITucJyOOSzV6bNprpihGn3rhyomL7sKI4LBu0e1Tz8lSXrZ8Lg5z9ZWYQYmH_NNqpX7tPSmGKo9OXBkRL7rE7xiK8Ffd5-d8xCMDq_R2WPDQ5BmwkXxFClWumfmtAAePHFceiyrLnMtrL9GssZnD4Soo-tjO-i4i7CSa1wHHwA7NPg0dHyxahgg6kUyicOKPVwSd56oESC-qO-1MvG-McGkDH3IyTcdvB8"/>
+            </div>
+            <div className="flex gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label text-[9px] font-bold uppercase tracking-widest">CLOUD</span>
+              <span className="text-on-surface-variant font-label text-[10px] self-center">8 MIN READ</span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Serverless as a Blueprint: Rethinking Scalability</h3>
+            <p className="text-on-surface-variant text-sm leading-relaxed mb-6">How managed infrastructure is shifting the paradigm from maintenance to pure architectural design.</p>
+          </article>
 
+          {/* Card 2 (Vertical Focus) */}
+          <article className="group cursor-pointer lg:row-span-2">
+            <div className="aspect-[3/4] mb-6 overflow-hidden rounded-xl bg-surface-container-low transition-all duration-300 group-hover:-translate-y-2">
+              <img className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="circuit board traces" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfHv-rzSll2PBFnTU0Lj46nwdPqtTeh4eiGIrn3PFQ93OpfXe5KOEddiMuKhuqFo_ge4hVb7wRY5-4lTyQ020drRdKox3OW5KAWpnNNUtrwpOcx8m2b-ExPwGFmVlY6vK8KJFpTOD0jEftYv92vL8ZosacbHCaFxOs1J1G6aCKi26bCiF8TEOo7zSK_lKZvyIzYpBfhHeeXNpfQUB5msB8nILbDyAJJCmoxTR7-hY9M63kEz_AJE0YpXM4gGjwAwF5NexQFNTygYs"/>
+            </div>
+            <div className="flex gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label text-[9px] font-bold uppercase tracking-widest">HARDWARE</span>
+              <span className="text-on-surface-variant font-label text-[10px] self-center">15 MIN READ</span>
+            </div>
+            <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors leading-tight">The Silicon Soul: Hardware-Software Co-Design in 2024</h3>
+            <p className="text-on-surface-variant text-base leading-relaxed mb-6">Bridging the gap between physical constraints and digital abstractions for peak performance.</p>
+            <div className="pt-4 border-t border-outline-variant/10">
+              <p className="text-xs font-mono text-on-surface-variant">PUBLISHED IN: HARDWARE_SERIES</p>
+            </div>
+          </article>
+
+          {/* Card 3 */}
+          <article className="group cursor-pointer">
+            <div className="aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container-low transition-all duration-300 group-hover:-translate-y-2">
+              <img className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="3D cubes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnWkNEm3p8itLxWbf-QcjRaTzdpWHehktFetkZ617--zMTK3hxcRXgAUSiOSGymropFe8MLKggDrEDDnmlPvxtywM40VWHhR1ENgU7ATi1p3UZ297gVpTwT4DRJaMt1m54fnzKf2jOY9wQLXp8TXRAHHsjWIFL9S1vX3suHPe-qGHlFSY3LydqoH7qymjfVdyxgruyloYBXovxd5N_Xqr5IOYiJiJNQmm2sM1DbVojOkrH3TujoJZOpyoaNOZfED0-V_ijwO9PicU"/>
+            </div>
+            <div className="flex gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label text-[9px] font-bold uppercase tracking-widest">DESIGN</span>
+              <span className="text-on-surface-variant font-label text-[10px] self-center">6 MIN READ</span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Visual Variables: The Math Behind Motion Design</h3>
+            <p className="text-on-surface-variant text-sm leading-relaxed">Understanding easing curves and physics engines to create natural user interactions.</p>
+          </article>
+
+          {/* Card 4 */}
+          <article className="group cursor-pointer lg:col-start-1">
+            <div className="aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container-low transition-all duration-300 group-hover:-translate-y-2">
+              <img className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="forest" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0QOp6-2sTVxQCKfRPMGtZ7fVmcKRPvlgTRC62--Re1Mq-td5i2TkgZZiXoyK9NYdIISPpkM9cJHRwB9l7bH0Z_8muSdBFYmosDd2JHGOPcZP3oXe51_cH7Ak4JO4sFFr0nI6AWMBdXK6objnem4RY-V2CkBwzJ0CXLkrGuMs8MuKk2BShxudveDCH1FUM6jeQM5XVv6Z1BfY9Sye126gUK-eanWLta9gkVAi_WOiJ3MraxuLrfBNrOkBLWJQ0FHoEZuhs1hzsakE"/>
+            </div>
+            <div className="flex gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label text-[9px] font-bold uppercase tracking-widest">CULTURE</span>
+              <span className="text-on-surface-variant font-label text-[10px] self-center">12 MIN READ</span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">The Solitude of Seniority: Leading Without Directing</h3>
+            <p className="text-on-surface-variant text-sm leading-relaxed">Navigating the transition from individual contributor to technical strategist.</p>
+          </article>
+
+          {/* Card 5 */}
+          <article className="group cursor-pointer lg:col-start-3">
+            <div className="aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container-low transition-all duration-300 group-hover:-translate-y-2">
+              <img className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity" data-alt="code screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTwwbQakqD9Psb-1p-8YCs65fg-vCMwseX59bJiwzfp3pqj9t4Nvz6vFZphQF5dFiOG_4yl9bKJj2flEg4mfZcmCkuN5Sjk2vX4y3uAQYtyRMjUkytwQwcx3r-Ks8Zj3Q1iQ6kdWPrJDgqY2G1Jko3cDTD13OkRGyiDyU4AfZ3m4JgV8wHnVXMmGF2ocgAHefcIFUvCRsJCt6fAKpCgvLR4VIFP7cMqmLxa_PEAA-azzT_MhiHEBhpD-IGx8zLMIX4UBJaG8puDeA"/>
+            </div>
+            <div className="flex gap-3 mb-4">
+              <span className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label text-[9px] font-bold uppercase tracking-widest">SYSTEMS</span>
+              <span className="text-on-surface-variant font-label text-[10px] self-center">10 MIN READ</span>
+            </div>
+            <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">Atomic State: Managing Shared Data at Scale</h3>
+            <p className="text-on-surface-variant text-sm leading-relaxed">A survey of modern state management patterns and the entropy they attempt to solve.</p>
+          </article>
         </div>
       </section>
 
+      {/* Newsletter Tonal Shift Box */}
+      <section className="bg-surface-container-low rounded-xl p-16 mb-32 flex flex-col items-center text-center">
+        <span className="font-label text-xs font-bold tracking-[0.2em] text-primary mb-6 uppercase">Stay Precise</span>
+        <h2 className="text-4xl font-bold mb-6 max-w-xl leading-tight">Weekly insights for the architectural engineer.</h2>
+        <p className="text-on-surface-variant max-w-md mb-10">Curated articles on distributed systems, interface philosophy, and high-performance engineering.</p>
+        <form className="flex w-full max-w-md gap-4" onSubmit={(e) => e.preventDefault()}>
+          <input className="flex-grow bg-surface-container-lowest border-none rounded-xl px-6 py-4 focus:ring-2 focus:ring-primary font-label text-sm outline-none" placeholder="Your engineering email" type="email"/>
+          <button type="submit" className="bg-primary text-on-primary px-8 py-4 rounded-xl font-label text-sm font-bold uppercase tracking-widest hover:opacity-90">Join</button>
+        </form>
+      </section>
     </div>
   );
 }
