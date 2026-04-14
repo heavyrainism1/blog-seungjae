@@ -9,9 +9,9 @@ const Navbar: React.FC = () => {
           ENGINEER_JOURNAL
         </Link>
         <div className="hidden md:flex items-center gap-10">
-          <Link to="/posts" className="text-[#0060aa] font-medium border-b-2 border-[#0060aa] pb-1 font-['Inter'] font-light tracking-tight transition-opacity hover:opacity-80">Articles</Link>
-          <Link to="/series" className="text-[#151d22]/60 hover:text-[#151d22] transition-colors font-['Inter'] font-light tracking-tight hover:opacity-80">Series</Link>
-          <Link to="/about" className="text-[#151d22]/60 hover:text-[#151d22] transition-colors font-['Inter'] font-light tracking-tight hover:opacity-80">Manifesto</Link>
+          <Link to="#" className="text-[#0060aa] font-medium border-b-2 border-[#0060aa] pb-1 font-['Inter'] font-light tracking-tight transition-opacity hover:opacity-80">Articles</Link>
+          <Link to="#" className="text-[#151d22]/60 hover:text-[#151d22] transition-colors font-['Inter'] font-light tracking-tight hover:opacity-80">Series</Link>
+          <Link to="#" className="text-[#151d22]/60 hover:text-[#151d22] transition-colors font-['Inter'] font-light tracking-tight hover:opacity-80">Manifesto</Link>
           <Link to="#" className="text-[#151d22]/60 hover:text-[#151d22] transition-colors font-['Inter'] font-light tracking-tight hover:opacity-80">Archive</Link>
         </div>
         <div className="flex items-center gap-6">
