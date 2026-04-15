@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&family=Space+Grotesk:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            "colors": {
+                "secondary-fixed-dim": "#c3c6cf",
+                "inverse-on-surface": "#eaf2fa",
+                "surface-bright": "#f6faff",
+                "surface-container-low": "#edf4fd",
+                "on-secondary": "#ffffff",
+                "outline-variant": "#c0c7d4",
+                "error-container": "#ffdad6",
+                "surface": "#f6faff",
+                "on-background": "#151d22",
+                "on-tertiary-fixed-variant": "#3f4850",
+                "on-primary-fixed": "#001c38",
+                "tertiary-fixed-dim": "#bec7d2",
+                "on-primary-fixed-variant": "#004882",
+                "surface-container-high": "#e1e9f1",
+                "primary-fixed": "#d3e4ff",
+                "on-error-container": "#93000a",
+                "outline": "#717783",
+                "surface-container": "#e7eff7",
+                "on-primary-container": "#003a6b",
+                "on-secondary-fixed-variant": "#43474e",
+                "inverse-primary": "#a2c9ff",
+                "secondary-fixed": "#dfe2eb",
+                "on-surface-variant": "#414752",
+                "surface-dim": "#d3dbe3",
+                "on-tertiary": "#ffffff",
+                "primary": "#0060aa",
+                "surface-variant": "#dbe3ec",
+                "surface-container-highest": "#dbe3ec",
+                "tertiary": "#565f69",
+                "on-secondary-container": "#61646c",
+                "on-surface": "#151d22",
+                "on-tertiary-container": "#313a43",
+                "inverse-surface": "#293138",
+                "secondary-container": "#dfe2eb",
+                "on-tertiary-fixed": "#141c24",
+                "on-error": "#ffffff",
+                "tertiary-container": "#9ba4ae",
+                "primary-container": "#58a6ff",
+                "surface-tint": "#0060aa",
+                "tertiary-fixed": "#dae3ee",
+                "primary-fixed-dim": "#a2c9ff",
+                "on-secondary-fixed": "#181c22",
+                "on-primary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "error": "#ba1a1a",
+                "background": "#f6faff",
+                "secondary": "#5b5e66"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Space Grotesk"],
+                "mono": ["JetBrains Mono"]
+            }
+        }
+    }
+}
+</script>
+<style>
+body {
+  background-color: #f6faff;
+  color: #151d22;
+}
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+section {
+  position: relative;
+}
+section::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, #f6faff, transparent);
+  pointer-events: none;
+}
+</style>
+</head>
+<body class="font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
+  <div class="flex flex-col min-h-screen relative w-full">
+    <nav class="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl transition-all duration-300 ease-out shadow-[0_0_15px_rgba(88,166,255,0.1)]">
+      <div class="flex justify-between items-center px-8 h-16 max-w-7xl mx-auto">
+        <a href="/" class="font-['JetBrains_Mono'] font-bold text-blue-400 tracking-tighter text-xl">
+          &gt;_ Seungjae_
+        </a>
+        <div class="hidden md:flex gap-8 items-center font-['Space_Grotesk'] tracking-tight text-sm">
+          <a href="/" class="text-blue-400 font-bold border-b-2 border-blue-400 shadow-[0_4px_10px_-2px_rgba(88,166,255,0.5)] transition-all duration-300 ease-out hover:scale-95">Home</a>
+          <a href="/about" class="text-slate-400 hover:text-slate-100 transition-colors duration-300 ease-out hover:scale-95">About</a>
+          <a href="/posts" class="text-slate-400 hover:text-slate-100 transition-colors duration-300 ease-out hover:scale-95">Posts</a>
+        </div>
+        <div class="flex items-center gap-4">
+          <button class="p-2 hover:bg-white/5 transition-all duration-300 ease-out hover:scale-95 rounded text-blue-400 flex items-center">
+            <span class="material-symbols-outlined max-h-6 overflow-hidden leading-1" data-icon="terminal">terminal</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+    
+    <main class="flex-1 w-full relative z-10 space-y-12 pb-32">
+<div class="pt-32 pb-24 px-8 max-w-7xl mx-auto">
+      <!-- Hero / Featured Section -->
+      <section class="mb-24 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div class="lg:col-span-8">
+          <div class="font-label text-primary uppercase tracking-[0.3em] text-[10px] mb-4">Featured_Core_Development</div>
+          <h1 class="font-headline text-6xl md:text-8xl font-bold tracking-tighter leading-[0.85] mb-8 text-glow">
+            LOW LEVEL<br />PRECISION.
+          </h1>
+          <p class="text-on-surface-variant text-lg max-w-xl mb-12 leading-relaxed">
+            Exploring the intricate depths of C/C++ memory management and how proximity to hardware shapes modern systems engineering in a world of high-level abstractions.
+          </p>
+          <div class="flex items-center gap-6">
+            <button class="bg-gradient-to-br from-primary to-primary-container text-on-primary px-8 py-3 font-headline font-bold text-sm flex items-center gap-2 group transition-all duration-300 hover:scale-105 active:scale-95">
+              READ ARTICLE
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+            </button>
+            <div class="font-label text-[10px] text-outline tracking-widest uppercase">
+              EST. READ TIME: 14 MIN
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-4 relative group">
+          <div class="absolute inset-0 bg-primary/10 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+          <div class="relative aspect-[4/5] bg-surface-container-low border border-outline-variant/20 overflow-hidden glow-hover transition-all duration-500 rounded-lg">
+            <img class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700" data-alt="Technical abstract code display on a monitor in a dark room with cyan glowing accents and shallow depth of field" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfMOyX0YcBc4g_zq4gAoHnvJOPwxABhch2Dl3YgKFLMuEl2OuqfoVL4fdxW49CoN2OwwEJsEdoKzta9JsUuCwTqK6PKl-CQa0JRoNwjRyUqTO696lpL8E7_m71Y0gDxgPqq5rmfJUFQSFGEkdjFCe-AC6gM0cvXrv-W8UYLYpqZhBnlYQc9rdjfnq9Y4IkoUfnu1MgEEGqNVgk330e5rrVYu1E30SeQtFynBzyvLiNNAIDLa5KdcQQKa6mLQS9ne9l6rzWgdgC-J4" />
+            <div class="absolute bottom-0 left-0 p-6 bg-gradient-to-t from-black to-transparent w-full">
+              <div class="font-label text-primary text-[10px] mb-2">SYSTEMS_BLOG_042</div>
+              <div class="font-headline font-bold text-xl uppercase leading-tight text-white">Memory Leaks &amp; Pointers</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Orbital Grid Section -->
+      <div class="flex justify-between items-end mb-12 border-b border-outline-variant/10 pb-6">
+        <div>
+          <h2 class="font-headline text-4xl font-bold tracking-tight uppercase">Recent Architecture</h2>
+          <div class="font-label text-[10px] text-primary tracking-widest mt-2 uppercase">Frontend_Systems_Audit</div>
+        </div>
+        <div class="flex gap-2">
+          <button class="p-2 border border-outline-variant/20 hover:border-primary/50 transition-colors rounded">
+            <span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+          </button>
+          <button class="p-2 border border-outline-variant/20 hover:border-primary/50 transition-colors rounded">
+            <span class="material-symbols-outlined" data-icon="view_agenda">view_agenda</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 border-t border-l border-outline-variant/10">
+        <!-- Article Card 1 -->
+        <article class="p-8 border-r border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 group relative">
+          <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+            <span class="font-label text-[10px]">01</span>
+          </div>
+          <div class="mb-8 overflow-hidden aspect-video bg-surface-container-lowest border border-outline-variant/10 rounded">
+            <img class="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700" data-alt="Abstract 3D geometric shapes representing modular frontend components in shades of blue and metallic silver" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDp3KMqL_UzOhq3VYB2Hdj3hWPDG-AMnt9oeT_LPbH-Xm5W3OVTFG3YcIaEcdG1cIRZxOVfzEGAl4Y5Qhsm_KBI8Gm7Q8Hb8iPCLBHv-OxBzzKAnp9M2P1W4VcNTZcz4XoihBhBFQSETokDcj1AmBk2DdE9rvA45uZJ7salQuPZte1QlSfCsKQ-mbrE-f6yadSKG2Nxu9syXfI2CL7QN1kW-ZPAuy3IPb5qdxj4iihZRlRTpVvElxjVqKj3kOpGBUFL3rxpJy12fTc" />
+          </div>
+          <div class="font-label text-primary text-[10px] mb-4">ARCHITECTURE</div>
+          <h3 class="font-headline text-2xl font-bold leading-tight mb-4 group-hover:text-primary transition-colors">The Micro-Frontend Dilemma</h3>
+          <p class="text-on-surface-variant text-sm mb-8 line-clamp-3">
+            Is the complexity of federated modules worth the developer experience trade-off? An deep dive into modern orchestration.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-outline">Oct 24, 2024</span>
+            <a href="#" class="text-primary flex items-center gap-1 group/link">
+              <span class="font-label text-[10px] font-bold">READ</span>
+              <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article Card 2 -->
+        <article class="p-8 border-r border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 group relative">
+          <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+            <span class="font-label text-[10px]">02</span>
+          </div>
+          <div class="mb-8 overflow-hidden aspect-video bg-surface-container-lowest border border-outline-variant/10 rounded">
+            <img class="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700" data-alt="Matrix-like code scrolling on a vertical monitor with cool blue light reflections on a keyboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxyDICvbYUCg-kCk8pw08k_ww98RL4j1zSwebJ_duHQnhKmX-z5HQ_qCbP0fAGbpJlZf5QuG8NeCYt8cpnJXy9iS52japTJukLBdSlJHw6h6NSTCLDqU7TU3jaw_OyiMGvX3tWBJlzsgmkcNTPAUKLYqTxOMwkTRXtDMhCztRGPl6aqe0H5B-SyZxBoL0h4zKtGGLiVOoPlo-D4gkEYaYjjPFXv--8sRB3oXupoYOxFncWsp0qWZdcslpK-LL-EDgT-OctgflFX3o" />
+          </div>
+          <div class="font-label text-primary text-[10px] mb-4">REACT_INTERNALS</div>
+          <h3 class="font-headline text-2xl font-bold leading-tight mb-4 group-hover:text-primary transition-colors">Server Components in Production</h3>
+          <p class="text-on-surface-variant text-sm mb-8 line-clamp-3">
+            Bypassing the hydration bottleneck using Next.js 15 and the new RSC payload architecture for ultra-fast LCP.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-outline">Oct 21, 2024</span>
+            <a href="#" class="text-primary flex items-center gap-1 group/link">
+              <span class="font-label text-[10px] font-bold">READ</span>
+              <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Article Card 3 -->
+        <article class="p-8 border-r border-b border-outline-variant/10 hover:bg-surface-container-low transition-all duration-500 group relative">
+          <div class="absolute top-0 right-0 p-4 opacity-20 group-hover:opacity-100 transition-opacity">
+            <span class="font-label text-[10px]">03</span>
+          </div>
+          <div class="mb-8 overflow-hidden aspect-video bg-surface-container-lowest border border-outline-variant/10 rounded">
+            <img class="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:grayscale-0 transition-all duration-700" data-alt="Digital grid visualization of a global network with glowing nodes and technical data overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBlWm7xOWv0Gj21B8DtfBQX1CverfFvz-U-ItouYmg7OmlXdVtBF6FBHSQArgsC2rZQKbi-s7mIQQk1ObfX3kIlWSbCJMcpPtLO2jmaz5NWct6MlcB21hPfw8_GdLTA3kD52mJ-5SIyPeH3-JL_cDE_KvmLThrjlukWTgCl9esXXC4f2q9ZoP2HPWCb5zbcA2n9RENFqMlW5QLy4uNHhGk8SEnlX0OYdOxDANTOj7E0tDntxlynVB1a-loVXJbH6ChsGpAgk_u4zDU" />
+          </div>
+          <div class="font-label text-primary text-[10px] mb-4">DEV_OPS</div>
+          <h3 class="font-headline text-2xl font-bold leading-tight mb-4 group-hover:text-primary transition-colors">The Edge Computing Frontier</h3>
+          <p class="text-on-surface-variant text-sm mb-8 line-clamp-3">
+            Moving logic away from central data centers. Why your next project should be deployed on the global edge.
+          </p>
+          <div class="flex items-center justify-between">
+            <span class="font-label text-[10px] uppercase text-outline">Oct 18, 2024</span>
+            <a href="#" class="text-primary flex items-center gap-1 group/link">
+              <span class="font-label text-[10px] font-bold">READ</span>
+              <span class="material-symbols-outlined text-sm group-hover/link:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Section Callout -->
+      <section class="mt-24 bg-surface-container-high p-12 relative overflow-hidden rounded-xl">
+        <div class="absolute top-0 right-0 opacity-5 pointer-events-none">
+          <span class="font-headline text-[12rem] font-bold tracking-tighter leading-none select-none">CODE</span>
+        </div>
+        <div class="relative z-10 max-w-2xl">
+          <h2 class="font-headline text-4xl font-bold mb-6">Mastering the Low-Level</h2>
+          <p class="text-on-surface-variant mb-8 leading-relaxed">
+            Join my monthly deep-dive into compiler theory and systems programming. No fluff, just the raw engineering concepts that define the backbone of modern technology.
+          </p>
+          <form class="flex flex-col sm:flex-row gap-4" onsubmit="event.preventDefault();">
+            <input class="bg-surface-container-lowest border-none focus:ring-1 focus:ring-primary text-sm font-label px-6 py-3 w-full sm:w-80 outline-none rounded" placeholder="YOUR_EMAIL_ADDRESS" type="email" />
+            <button type="submit" class="bg-primary text-on-primary font-headline font-bold px-8 py-3 text-sm hover:bg-primary-container transition-colors active:scale-95 rounded">SUBSCRIBE</button>
+          </form>
+        </div>
+      </section>
+    </div>
+
+      <div class="max-w-7xl mx-auto px-12">
+          <div class="w-full h-[1px] bg-outline-variant/30"></div>
+      </div>
+
+<div class="pt-48 pb-32">
+      <!-- Hero Context -->
+      <header class="max-w-7xl mx-auto px-12 mb-32">
+        <div class="max-w-3xl">
+          <div class="font-label text-xs uppercase tracking-[0.2em] text-primary mb-6">Current Edition / Vol. 04</div>
+          <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] mb-12 text-on-surface">
+            Thoughts on <br/>Structural <br/>Integrity.
+          </h1>
+          <p class="text-xl text-on-surface-variant font-light leading-relaxed max-w-xl">
+            An exploration of digital architecture, system entropy, and the discipline of building software that outlasts its creators.
+          </p>
+        </div>
+      </header>
+
+      <!-- Minimal Typography-Focused Blog List -->
+      <section class="max-w-7xl mx-auto px-12">
+        <div class="space-y-32">
+          <!-- Journal Entry 01 -->
+          <article class="group max-w-4xl cursor-pointer">
+            <div class="flex flex-col md:flex-row md:items-start gap-8 md:gap-24">
+              <div class="w-32 pt-2">
+                <span class="font-mono text-xs text-outline tracking-widest uppercase">Aug 24, 2024</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-4 mb-4">
+                  <span class="font-label text-[10px] uppercase tracking-widest px-3 py-1 bg-surface-container rounded-full text-on-surface-variant">Infrastructure</span>
+                  <span class="font-mono text-[10px] text-outline">08 min read</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface mb-6 group-hover:text-primary transition-colors duration-300 leading-tight">
+                    The Fallacy of Microservices in Small Engineering Teams.
+                </h2>
+                <p class="text-lg text-on-surface-variant/80 font-light leading-relaxed mb-8 max-w-2xl">
+                    Complexity is often mistaken for scalability. We examine why distributed monoliths are the silent killer of productivity for teams under fifty and how to return to the elegance of the modular monolith.
+                </p>
+                <div class="flex items-center text-primary font-label text-sm tracking-widest uppercase group-hover:gap-2 transition-all">
+                    Read Full Entry
+                    <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          
+          <!-- Journal Entry 02 -->
+          <article class="group max-w-4xl cursor-pointer">
+            <div class="flex flex-col md:flex-row md:items-start gap-8 md:gap-24">
+              <div class="w-32 pt-2">
+                <span class="font-mono text-xs text-outline tracking-widest uppercase">Aug 18, 2024</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-4 mb-4">
+                  <span class="font-label text-[10px] uppercase tracking-widest px-3 py-1 bg-surface-container rounded-full text-on-surface-variant">Architecture</span>
+                  <span class="font-mono text-[10px] text-outline">12 min read</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface mb-6 group-hover:text-primary transition-colors duration-300 leading-tight">
+                    Designing for Failure: The Idempotency Key Pattern.
+                </h2>
+                <p class="text-lg text-on-surface-variant/80 font-light leading-relaxed mb-8 max-w-2xl">
+                    In a world of unreliable networks, consistency is the only currency that matters. A deep dive into implementing robust state transitions across distributed systems using deterministic identifiers.
+                </p>
+                <div class="flex items-center text-primary font-label text-sm tracking-widest uppercase group-hover:gap-2 transition-all">
+                    Read Full Entry
+                    <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Journal Entry 03 -->
+          <article class="group max-w-4xl cursor-pointer">
+            <div class="flex flex-col md:flex-row md:items-start gap-8 md:gap-24">
+              <div class="w-32 pt-2">
+                <span class="font-mono text-xs text-outline tracking-widest uppercase">Jul 30, 2024</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-4 mb-4">
+                  <span class="font-label text-[10px] uppercase tracking-widest px-3 py-1 bg-surface-container rounded-full text-on-surface-variant">Philosophy</span>
+                  <span class="font-mono text-[10px] text-outline">05 min read</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface mb-6 group-hover:text-primary transition-colors duration-300 leading-tight">
+                    The Brutalist Manifesto for Modern UI.
+                </h2>
+                <p class="text-lg text-on-surface-variant/80 font-light leading-relaxed mb-8 max-w-2xl">
+                    Stripping away the excess. Why the most successful interfaces are those that respect the user's cognitive load over the designer's desire for ornamentation. Lessons from 20th-century architecture.
+                </p>
+                <div class="flex items-center text-primary font-label text-sm tracking-widest uppercase group-hover:gap-2 transition-all">
+                    Read Full Entry
+                    <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Journal Entry 04 -->
+          <article class="group max-w-4xl cursor-pointer">
+            <div class="flex flex-col md:flex-row md:items-start gap-8 md:gap-24">
+              <div class="w-32 pt-2">
+                <span class="font-mono text-xs text-outline tracking-widest uppercase">Jul 12, 2024</span>
+              </div>
+              <div class="flex-1">
+                <div class="flex items-center gap-4 mb-4">
+                  <span class="font-label text-[10px] uppercase tracking-widest px-3 py-1 bg-surface-container rounded-full text-on-surface-variant">Database</span>
+                  <span class="font-mono text-[10px] text-outline">15 min read</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-bold tracking-tight text-on-surface mb-6 group-hover:text-primary transition-colors duration-300 leading-tight">
+                    Beyond the Index: Understanding LSM-Trees.
+                </h2>
+                <p class="text-lg text-on-surface-variant/80 font-light leading-relaxed mb-8 max-w-2xl">
+                    Log-Structured Merge-Trees power the fastest databases on the planet. We break down the mechanics of sstable compaction, bloom filters, and the trade-offs of write-heavy workloads.
+                </p>
+                <div class="flex items-center text-primary font-label text-sm tracking-widest uppercase group-hover:gap-2 transition-all">
+                    Read Full Entry
+                    <span class="material-symbols-outlined ml-2 text-sm" data-icon="arrow_forward">arrow_forward</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Pagination -->
+        <div class="mt-48 flex justify-between items-center border-t border-outline-variant/20 pt-16">
+          <div class="font-mono text-[10px] text-outline uppercase tracking-widest">Page 01 / 14</div>
+          <div class="flex gap-12">
+            <button class="flex items-center font-label text-xs uppercase tracking-widest text-on-surface-variant/40 cursor-not-allowed">
+              <span class="material-symbols-outlined mr-2 text-sm" data-icon="keyboard_arrow_left">keyboard_arrow_left</span>
+              Previous
+            </button>
+            <button class="flex items-center font-label text-xs uppercase tracking-widest text-on-surface hover:text-primary transition-colors">
+              Next Edition
+              <span class="material-symbols-outlined ml-2 text-sm" data-icon="keyboard_arrow_right">keyboard_arrow_right</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+      <div class="max-w-7xl mx-auto px-12">
+          <div class="w-full h-[1px] bg-outline-variant/30"></div>
+      </div>
+
+<div class="pt-32 max-w-7xl mx-auto px-12">
+      <!-- Hero Section -->
+      <header class="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+        <div class="max-w-2xl">
+          <div class="font-label text-xs font-bold text-primary tracking-[0.2em] uppercase mb-4">The Repository</div>
+          <h1 class="text-6xl md:text-7xl font-headline font-extrabold tracking-tighter leading-none text-on-surface">
+            Systems <br/> Thinking.
+          </h1>
+          <p class="mt-8 text-xl text-on-surface-variant font-light leading-relaxed">
+            A collection of technical deep-dives into distributed systems, performance engineering, and the philosophy of software architecture.
+          </p>
+        </div>
+        <div class="flex gap-4">
+          <div class="w-32 h-32 rounded-xl bg-surface-container-high overflow-hidden">
+            <img class="w-full h-full object-cover" data-alt="Close-up of organized server rack cables in a clean data center with blue and white lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe7QuWKccVNZXvEzF7hmQwIexX_kpvBKqYznJcZgcrljkXUa5Xx2ehKHqQ7IezaAmorD2QwQmVpvOQz6v_NUkyuJ85H8ydeCs_oKmUEvaPP6TopTYjfkBMey4U8N5WCo33sVvhSxZLg9RAo9-h7oWykYjbXTa2dYAUqPX6M43ihykNTwTecmSeN7b6ZcjNd-bSLmJayjKepNFN9L86xHq7dtPQsHGNdvKkz7pUh9zFqz8c1WN_A8baby4Vni5_m1QgArz7Wwqma3c"/>
+          </div>
+          <div class="w-32 h-32 rounded-xl bg-surface-container-high overflow-hidden">
+            <img class="w-full h-full object-cover" data-alt="Abstract geometric architectural concrete structure with sharp shadows and clear blue sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOPEbmEWMVyPcZO2XQ_fV7L7FCFoFwrHatrKZbjSqJYlwERrQyfOUiD1XLro7iAsT8XlNwACzvMxIYbV_c30mrj1POXykLXVWsphbwSHimLYylAxTBmZ3STCLkm3FKqASp7We_yGagayZ_MhTSUzvrn_BRWxAnOpwTSWBsm0zDP8w3QL3qVVdZqgcAPP61dYa_ua0Q3BT59_N73xwk-rvOvxBc2m8htqY52cBIVfijt5Cx-7MKVU65flKlzf0NWiVRzG9i-l532k8"/>
+          </div>
+        </div>
+      </header>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <!-- Technical Blog Grid -->
+        <div class="lg:col-span-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12">
+            <!-- Article Card 1 -->
+            <article class="group cursor-pointer">
+              <div class="aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
+                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A futuristic digital representation of a neural network grid with glowing nodes and cyan lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoUgvZ6iD2lRQAkd38EhBCumtbUV-MA2iK59ptMC1HRNfsLXsq4E0vrUrSNOGhohaU881ZjyGh9zKARZfyBw3JDgENsAvhxhZLjXb6GqgrSKmyd3Q0wddtOcr5vONCaXAO23zjyBwN-MEIZvBXExvT5Rz_-qHwVy6SNTOMHiViVAynhbdoDdXtjPrN9O8BDjKiSzJXebM_bakFrDC1x5S7rtXeK8wrlNjTmCNvrzV5j2G5tmDRpU6cr7-yhh1CUyEHTxCox0Rl4xQ"/>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Distributed</span>
+                <span class="font-mono text-[10px] text-outline italic">12 MIN READ</span>
+              </div>
+              <h3 class="text-2xl font-headline font-bold text-on-surface leading-tight mb-3 group-hover:text-primary transition-colors">Understanding Paxos and Raft: A Comparative Study</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-3">
+                Consensus algorithms are the backbone of distributed systems. We explore why Raft gained popularity over the classic Paxos implementation in modern cloud environments.
+              </p>
+            </article>
+
+            <!-- Article Card 2 -->
+            <article class="group cursor-pointer">
+              <div class="aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
+                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Sleek modern server room with glowing blue status indicators and reflection on polished floor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH2Trkr3rZ8RRQyq1FsuoPRlFl7Dn-SkeujaBvnbnWKfqJzsvNQPuZMZcmw_sH0S7OcPXSq1V09Oxb2i5o5d6yikwX9gdwk0EZwY7ti-Ero0Odj3FU911BCiSor73Hn1HtJrQbvMJddUi-zMs3PAiC1L286uwXxboGYGXENPkGG7My2dIHyLR7puTipiAp5ZvjTrEMg4HlCPqn3VVJjJ8kxncohU3xO4LbIM8QerzbZwWbUDKyEaMcal795c9MoSumTD7Ez-mZNsM"/>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Performance</span>
+                <span class="font-mono text-[10px] text-outline italic">08 MIN READ</span>
+              </div>
+              <h3 class="text-2xl font-headline font-bold text-on-surface leading-tight mb-3 group-hover:text-primary transition-colors">Optimizing L3 Cache Locality in Rust</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-3">
+                Hardware-aware programming is no longer optional for high-performance applications. Learn how to structure data for maximum CPU cache efficiency.
+              </p>
+            </article>
+
+            <!-- Article Card 3 -->
+            <article class="group cursor-pointer">
+              <div class="aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
+                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Satellite view of Earth at night with illuminated fiber optic global network connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdBC4MDiT88f1dmgM3oudlvFee8eV74fsqt9g9VI_MiJxoR0YmT7JvBt7jzCuRjRavhKx_N4MXtmT19AFEFmqG_xR2eit3PXuPPC2Vq4V-msxF8-OjKcHUYbM51r7LQw1ETTzSH734izb53-LuQrVeFyaII2u7Nuv7iPMUQu5gv2OWQWQJJsFKOADaNBvhHuKg4fXhs6KDOFOF7woSp_HprZ6ATX41CaKjy3mgzJJGBva3fEoSr3kAQUSl1wy6z7XGMkscX32DoOM"/>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Architecture</span>
+                <span class="font-mono text-[10px] text-outline italic">15 MIN READ</span>
+              </div>
+              <h3 class="text-2xl font-headline font-bold text-on-surface leading-tight mb-3 group-hover:text-primary transition-colors">The Microservices Fallacy</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-3">
+                When does the operational overhead of microservices outweigh the scalability benefits? An honest look at modular monoliths in 2024.
+              </p>
+            </article>
+
+            <!-- Article Card 4 -->
+            <article class="group cursor-pointer">
+              <div class="aspect-video mb-6 overflow-hidden rounded-xl bg-surface-container">
+                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="Minimalist abstract code displayed on a high-resolution monitor with soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxEUb6fDQid-9BXSdAToVRoa-TnVR9hUM5N9SeywGpOGDC8dNt6jYDAkLLR7hhBRSAVLaknVkXpm3xXY4_7HwYgJmxfpANiW-fqUioqTkVZtk0FWu-kFURVVoLFhhqL3IfmYPrekca9QMTb3mAQ-6p4i726s4CW_URvr5D-8GoLXKFgrA9gyXfWwRbtC9Q8g0MhMbyA5mhIqYe_vRTfPfyaR3O94QJt5ZK54J2THoM3g_qZWaC1vqAsc7nOI2UUeSb8UYhH6cFKTs"/>
+              </div>
+              <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label text-[10px] uppercase tracking-widest font-bold">Tooling</span>
+                <span class="font-mono text-[10px] text-outline italic">05 MIN READ</span>
+              </div>
+              <h3 class="text-2xl font-headline font-bold text-on-surface leading-tight mb-3 group-hover:text-primary transition-colors">Building Custom eBPF Observability Tools</h3>
+              <p class="text-on-surface-variant text-sm leading-relaxed line-clamp-3">
+                Peering into the kernel without modifying source code. A hands-on guide to using eBPF for real-time production debugging.
+              </p>
+            </article>
+          </div>
+          
+          <div class="mt-20 pt-12 border-t border-outline-variant/10 text-center">
+            <button class="font-label text-xs font-bold uppercase tracking-[0.2em] text-on-surface hover:text-primary transition-colors inline-flex items-center gap-2 group">
+              Load Older Archives
+              <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="lg:col-span-4 space-y-16">
+          <!-- Categories -->
+          <div>
+            <h4 class="font-label text-xs font-bold text-outline uppercase tracking-widest mb-8">Taxonomy</h4>
+            <ul class="space-y-4">
+              <li class="flex justify-between items-center group cursor-pointer">
+                <span class="text-sm font-headline font-medium text-on-surface group-hover:text-primary transition-colors">Distributed Systems</span>
+                <span class="font-mono text-[10px] bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant">24</span>
+              </li>
+              <li class="flex justify-between items-center group cursor-pointer">
+                <span class="text-sm font-headline font-medium text-on-surface group-hover:text-primary transition-colors">System Design</span>
+                <span class="font-mono text-[10px] bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant">18</span>
+              </li>
+              <li class="flex justify-between items-center group cursor-pointer">
+                <span class="text-sm font-headline font-medium text-on-surface group-hover:text-primary transition-colors">Kernel Engineering</span>
+                <span class="font-mono text-[10px] bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant">07</span>
+              </li>
+              <li class="flex justify-between items-center group cursor-pointer">
+                <span class="text-sm font-headline font-medium text-on-surface group-hover:text-primary transition-colors">Performance Tuning</span>
+                <span class="font-mono text-[10px] bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant">12</span>
+              </li>
+              <li class="flex justify-between items-center group cursor-pointer">
+                <span class="text-sm font-headline font-medium text-on-surface group-hover:text-primary transition-colors">Database Internals</span>
+                <span class="font-mono text-[10px] bg-surface-container-high px-2 py-0.5 rounded text-on-surface-variant">09</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Popular Posts -->
+          <div>
+            <h4 class="font-label text-xs font-bold text-outline uppercase tracking-widest mb-8">Popular Reads</h4>
+            <div class="space-y-10">
+              <div class="flex gap-4 items-start group cursor-pointer">
+                <span class="font-mono text-xl text-surface-variant font-black group-hover:text-primary-container transition-colors">01</span>
+                <div>
+                  <h5 class="text-sm font-headline font-bold leading-tight text-on-surface mb-2">The architecture of a high-frequency trading engine.</h5>
+                  <span class="font-mono text-[10px] text-outline italic">JAN 14, 2024</span>
+                </div>
+              </div>
+              <div class="flex gap-4 items-start group cursor-pointer">
+                <span class="font-mono text-xl text-surface-variant font-black group-hover:text-primary-container transition-colors">02</span>
+                <div>
+                  <h5 class="text-sm font-headline font-bold leading-tight text-on-surface mb-2">Why we moved away from Kubernetes.</h5>
+                  <span class="font-mono text-[10px] text-outline italic">DEC 20, 2023</span>
+                </div>
+              </div>
+              <div class="flex gap-4 items-start group cursor-pointer">
+                <span class="font-mono text-xl text-surface-variant font-black group-hover:text-primary-container transition-colors">03</span>
+                <div>
+                  <h5 class="text-sm font-headline font-bold leading-tight text-on-surface mb-2">Visualizing Garbage Collection in Go.</h5>
+                  <span class="font-mono text-[10px] text-outline italic">NOV 11, 2023</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newsletter Card -->
+          <div class="bg-surface-container-low rounded-xl p-8 relative overflow-hidden">
+            <div class="relative z-10">
+              <h4 class="text-xl font-headline font-black text-on-surface mb-4">Engineering Weekly</h4>
+              <p class="text-sm text-on-surface-variant mb-6 font-light">Join 45,000+ architects who receive our weekly deep-dive into complex systems.</p>
+              <form class="space-y-4" onsubmit="event.preventDefault();">
+                <input class="w-full bg-surface-container-lowest border-none rounded-xl px-4 py-3 text-sm font-label focus:ring-2 focus:ring-primary/20 outline-none" placeholder="you@company.com" type="email"/>
+                <button type="submit" class="w-full bg-on-surface text-surface py-3 rounded-xl font-label text-xs font-bold uppercase tracking-widest hover:bg-primary transition-colors">Join Dispatch</button>
+              </form>
+            </div>
+            <!-- Decorative background element -->
+            <div class="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    </main>
+
+    <footer class="w-full py-12 border-t border-slate-800/50 bg-slate-950">
+      <div class="flex flex-col md:flex-row justify-between items-center px-8 gap-6 max-w-7xl mx-auto">
+        <div class="text-slate-100 font-bold font-['JetBrains_Mono'] tracking-tighter uppercase">
+          © 2024 Built with precision
+        </div>
+        <div class="flex gap-8 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest">
+          <a href="#" class="text-slate-500 hover:text-blue-300 transition-colors opacity-80 hover:opacity-100">GitHub</a>
+          <a href="#" class="text-slate-500 hover:text-blue-300 transition-colors opacity-80 hover:opacity-100">RSS</a>
+          <a href="#" class="text-slate-500 hover:text-blue-300 transition-colors opacity-80 hover:opacity-100">Twitter</a>
+          <a href="#" class="text-slate-500 hover:text-blue-300 transition-colors opacity-80 hover:opacity-100">LinkedIn</a>
+        </div>
+        <div class="text-slate-500 font-['JetBrains_Mono'] text-[8px] opacity-40 uppercase">
+          v2.4.0-stable_orbital
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

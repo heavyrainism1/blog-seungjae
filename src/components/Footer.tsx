@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#edf4fd] w-full mt-32">
-      <div className="flex flex-col md:flex-row justify-between items-center px-12 py-16 max-w-7xl mx-auto">
-        <div className="flex flex-col items-center md:items-start gap-4 mb-8 md:mb-0">
-          <div className="font-bold text-[#151d22]">ENGINEER_JOURNAL</div>
-          <p className="font-mono uppercase text-[10px] tracking-[0.05em] text-[#151d22]/40">
-            © 2024 Architecturalist Engineering Journal. Built with precision.
-          </p>
+    <footer className="w-full py-12 border-t border-slate-800/50 bg-slate-950">
+      <div className="flex flex-col md:flex-row justify-between items-center px-8 gap-6 max-w-7xl mx-auto">
+        <div className="text-slate-100 font-bold font-['JetBrains_Mono'] tracking-tighter uppercase">
+          © 2024 Built with precision
         </div>
-        <div className="flex gap-8">
-          <Link to="#" className="font-mono uppercase text-[10px] tracking-[0.05em] text-[#151d22]/40 hover:text-[#0060aa] transition-colors">Privacy</Link>
-          <Link to="#" className="font-mono uppercase text-[10px] tracking-[0.05em] text-[#151d22]/40 hover:text-[#0060aa] transition-colors">Changelog</Link>
-          <Link to="#" className="font-mono uppercase text-[10px] tracking-[0.05em] text-[#151d22]/40 hover:text-[#0060aa] transition-colors">Colophon</Link>
-          <Link to="#" className="font-mono uppercase text-[10px] tracking-[0.05em] text-[#151d22]/40 hover:text-[#0060aa] transition-colors">RSS</Link>
+        <div className="flex gap-8 font-['JetBrains_Mono'] text-[10px] uppercase tracking-widest">
+          <Link to="#" className="text-slate-500 hover:text-blue-300 transition-colors opacity-80 hover:opacity-100">GitHub</Link>
+          <Link to="#" className="text-slate-500 hover:text-blue-300 transition-colors opacity-80 hover:opacity-100">RSS</Link>
+          <Link to="#" className="text-slate-500 hover:text-blue-300 transition-colors opacity-80 hover:opacity-100">Twitter</Link>
+          <Link to="#" className="text-slate-500 hover:text-blue-300 transition-colors opacity-80 hover:opacity-100">LinkedIn</Link>
+        </div>
+        <div className="text-slate-500 font-['JetBrains_Mono'] text-[8px] opacity-40 uppercase">
+          v2.4.0-stable_orbital
         </div>
       </div>
     </footer>

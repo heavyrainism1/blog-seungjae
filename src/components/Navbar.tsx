@@ -3,24 +3,19 @@ import { Link } from 'react-router-dom';
 
 const Navbar: React.FC = () => {
   return (
-    <nav className="fixed top-0 w-full z-50 bg-[#f6faff]/70 backdrop-blur-xl transition-all duration-200 ease-out">
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-12 py-6">
-        <Link to="/" className="font-mono font-bold tracking-tighter text-[#151d22]">
-          ENGINEER_JOURNAL
+    <nav className="fixed top-0 w-full z-50 bg-slate-950/80 backdrop-blur-xl transition-all duration-300 ease-out shadow-[0_0_15px_rgba(88,166,255,0.1)]">
+      <div className="flex justify-between items-center px-8 h-16 max-w-7xl mx-auto">
+        <Link to="/" className="font-['JetBrains_Mono'] font-bold text-blue-400 tracking-tighter text-xl">
+          &gt;_ Seungjae Engineering_
         </Link>
-        <div className="hidden md:flex items-center gap-10">
-          <Link to="#" className="text-[#0060aa] font-medium border-b-2 border-[#0060aa] pb-1 font-['Inter'] font-light tracking-tight transition-opacity hover:opacity-80">Articles</Link>
-          <Link to="#" className="text-[#151d22]/60 hover:text-[#151d22] transition-colors font-['Inter'] font-light tracking-tight hover:opacity-80">Series</Link>
-          <Link to="#" className="text-[#151d22]/60 hover:text-[#151d22] transition-colors font-['Inter'] font-light tracking-tight hover:opacity-80">Manifesto</Link>
-          <Link to="#" className="text-[#151d22]/60 hover:text-[#151d22] transition-colors font-['Inter'] font-light tracking-tight hover:opacity-80">Archive</Link>
+        <div className="hidden md:flex gap-8 items-center font-['Space_Grotesk'] tracking-tight text-sm">
+          <Link to="/" className="text-blue-400 font-bold border-b-2 border-blue-400 shadow-[0_4px_10px_-2px_rgba(88,166,255,0.5)] transition-all duration-300 ease-out hover:scale-95">Home</Link>
+          <Link to="/about" className="text-slate-400 hover:text-slate-100 transition-colors duration-300 ease-out hover:scale-95">About</Link>
+          <Link to="/posts" className="text-slate-400 hover:text-slate-100 transition-colors duration-300 ease-out hover:scale-95">Posts</Link>
         </div>
-        <div className="flex items-center gap-6">
-          <div className="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/10">
-            <span className="material-symbols-outlined text-on-surface-variant text-sm mr-2" data-icon="search">search</span>
-            <input className="bg-transparent border-none focus:ring-0 text-sm font-label placeholder:text-outline/50 w-32 outline-none" placeholder="Search entries..." type="text"/>
-          </div>
-          <button className="bg-gradient-to-br from-primary to-primary-container text-on-primary px-6 py-2 rounded-xl font-label text-sm font-bold tracking-wide shadow-lg shadow-primary/10 hover:opacity-80 transition-opacity">
-            Subscribe
+        <div className="flex items-center gap-4">
+          <button className="p-2 hover:bg-white/5 transition-all duration-300 ease-out hover:scale-95 rounded text-blue-400 flex items-center">
+            <span className="material-symbols-outlined max-h-6 overflow-hidden leading-1" data-icon="terminal">terminal</span>
           </button>
         </div>
       </div>
